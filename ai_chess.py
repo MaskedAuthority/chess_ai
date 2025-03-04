@@ -127,7 +127,7 @@ def extract_move(text, legal_moves):
     return None
 
 def main():    
-    genai.configure(api_key="AIzaSyB8yVETCPRHb4Eag9h3yI_lCZLH_-YRZA0")
+    genai.configure(api_key="YOUR API KEY")
     gemini_model = genai.GenerativeModel("gemini-2.0-flash")  # Or your preferred model
     
     ollama_client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
