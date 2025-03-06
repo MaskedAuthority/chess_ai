@@ -47,6 +47,7 @@ def get_ollama_move(board, ollama_client, model_name):
             f"Current board state (FEN): {board.fen()}\n\n"
             f"Legal moves in UCI format: {', '.join(legal_moves_uci)}\n"
             f"Legal moves in SAN format: {', '.join(legal_moves_san)}\n\n"
+            f"Attempt to win the game of chess do not just copy Blacks moves. Use opening and closing strategies to gain a checkmate of Black"
             f"Provide your next move. Your response must be EXACTLY ONE of the legal SAN format moves listed above. "
             f"Output ONLY the move with no explanations or additional text. For example: 'e4' or 'Nf3' or 'O-O'."
         )
@@ -127,7 +128,7 @@ def extract_move(text, legal_moves):
     return None
 
 def main():    
-    genai.configure(api_key="YOUR API KEY")
+    genai.configure(api_key="AIzaSyB8yVETCPRHb4Eag9h3yI_lCZLH_-YRZA0")
     gemini_model = genai.GenerativeModel("gemini-2.0-flash")  # Or your preferred model
     
     ollama_client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
@@ -142,7 +143,7 @@ def main():
 
     while not board.is_game_over() and move_count < max_moves:
         # add a sleep for 5 seconds
-        time.sleep(5)
+        time.sleep(1)
         
         display_board(board)
         move_count += 1
